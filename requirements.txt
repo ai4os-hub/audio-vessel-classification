@@ -35,7 +35,7 @@ mpmath==1.3.0
 networkx==3.2.1
 numpy==1.26.3
 oauthlib==3.2.2
-omegaconf==2.0.6
+omegaconf>= 2.06
 packaging==23.2
 pandas==2.2.0
 pillow==10.2.0
