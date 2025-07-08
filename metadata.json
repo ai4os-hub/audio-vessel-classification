@@ -5,7 +5,7 @@
     "audio_vessel_classifier is an application using the DEEPaaS API. Upload your 10-second .wav file and receive a prediction indicating the distance range to the nearest vessel.\n",
     "The classifier is based on a convolutional neural network trained on underwater sound recordings. It categorizes the distance of the closest vessel into discrete classes (e.g., 0–1 km, 1–2 km, ..., 9–10 km, >10 km) based on acoustic features. This tool is designed to support marine monitoring efforts by providing automated vessel presence estimation from passive acoustic data.",
     "The weights of the models (fine-tuning & feature-extraction) can be requested by emailing: wout.decrop@vliz.be",
-    "The weights are currently not open-source untill the paper (in submission) is accepted"    
+    "The weights are currently not open-source untill the paper (in submission) is accepted!" 
     ],
 	
     "keywords": [

@@ -69,7 +69,7 @@ def predict(**args):
     try:
         if not any([args.get("embedding_file"), args.get("audio_file")]):
 
-            raise Exception("You must provide  '.pt' or '.wav' in the payload")
+            raise Exception("You must provide  '.pt' or '.wav' in the payload!")
 
         return predict_data(args)
 

@@ -4,8 +4,7 @@ summary: "Classifies the distance to the nearest vessel from a 10-second underwa
 description: |-
   audio_vessel_classifier is an application using the DEEPaaS API.
   The weights of the models (fine-tuning & feature-extraction) can be requested by emailing: wout.decrop@vliz.be
-  The weights are currently not open-source untill the paper (in submission) is accepted.
-  
+  The weights are currently not open-source untill the paper (in submission) is accepted!
   
 # doi: http://add-some-DOI-url.com
 dates:
