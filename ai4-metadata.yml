@@ -14,7 +14,7 @@ dates:
 links:
   ai4_template: ai4-template/2.2.0
   source_code: https://github.com/ai4os-hub/audio-vessel-classification
-  docker_image: ai4oshub/audio-vessel-classification
+  docker_image: ai4oshub/audio-vessel-classifier
   # documentation: http://add-some-documentation.com
   # dataset: http://add-some-url-pointing-to-your-dataset.com
   # weights: http://add-some-weights-url.com
