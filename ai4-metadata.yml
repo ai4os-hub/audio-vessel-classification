@@ -36,7 +36,8 @@ tags:
   - vessel monitoring
   - vo.imagine-ai.eu
 tasks:
-  - Audio Classification
+  - Computer Vision
+  - Classification
 categories:
   - AI4 inference
 libraries:
