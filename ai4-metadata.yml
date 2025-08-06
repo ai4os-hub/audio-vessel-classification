@@ -30,7 +30,6 @@ links:
   docker_image: ai4oshub/audio-vessel-classifier
   citation: https://ieeexplore.ieee.org/document/11105453
   dataset: https://www.vliz.be/nl/imis?dasid=8773&doiid=1154
-
 tags:
   - deep learning
   - underwater acoustics
@@ -38,7 +37,6 @@ tags:
   - vo.imagine-ai.eu
 tasks:
   - Audio Classification
-  - Environmental Monitoring
 categories:
   - AI4 inference
 libraries:
