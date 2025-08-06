@@ -3,7 +3,9 @@
 [![Build Status](https://jenkins.services.ai4os.eu/buildStatus/icon?job=AI4OS-hub/audio-vessel-classification/main)](https://jenkins.services.ai4os.eu/job/AI4OS-hub/job/audio-vessel-classification/job/main/)
 
 ## Project Overview
-The Audio Vessel Classifier is a deep learning project designed to monitor vessel activity in marine environments using passive acoustic recordings. It processes 10-second audio clips recorded underwater and predicts the distance to the nearest vessel. This information supports marine conservation, shipping traffic analysis, and assessing human impact on sensitive ecosystems.
+The Audio Vessel Classifier is a deep learning project designed to monitor vessel activity in marine environments using passive acoustic recordings. It processes 10-second audio clips recorded underwater and predicts the distance to the nearest vessel. This information supports marine conservation, shipping traffic analysis, and assessing human impact on sensitive ecosystems. More information can be found in the associated publication:
+
+**DOI:** [10.1109/JSTARS.2025.3593779](https://doi.org/10.1109/JSTARS.2025.3593779)  
 
 ### Data Preparation
 To prepare the data for distance classification, audio recordings were segmented into 10-second, non-overlapping windows. Each segment was categorized based on its proximity to the nearest vessel. The distance categories were divided into 1 km bins:

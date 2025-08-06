@@ -1,29 +1,47 @@
 metadata_version: 2.0.0
 title: audio_vessel_classifier
-summary: "Classifies the distance to the nearest vessel from a 10-second underwater audio recording using a deep learning model"
+summary: "Classifies the distance to the nearest vessel from a 10-second underwater audio recording using a deep learning model."
 description: |-
-  audio_vessel_classifier is an application using the DEEPaaS API.
-  The weights of the models (fine-tuning & feature-extraction) can be requested by emailing: wout.decrop@vliz.be
-  The weights are currently not open-source untill the paper (in submission) is accepted!
-  
-# doi: http://add-some-DOI-url.com
+  audio_vessel_classifier is an AI application that uses underwater acoustic data to estimate the distance to the nearest vessel.
+  It leverages the DEEPaaS API for model serving and supports two pre-trained deep learning models: a feature extraction model and a fine-tuning model.
+  Users can choose between uploading a raw 10-second audio file or a pre-computed embedding.
+
+  The models are based on CLAP-LAION (Biolingual) and are suitable for marine monitoring, acoustic analysis, and environmental applications.
+
+  After launching the service, users can choose which model to use:
+  - `fine_tuning`: more accurate, re-trained end-to-end
+  - `feature_extraction`: more efficient, using frozen backbone and custom classification head
+
+
+  ![overview](https://raw.githubusercontent.com/ai4os-hub/audio-vessel-classification/blob/main/etc/overview_mixed.jpg)
+  More information about the classifier can be found here:
+  DOI: 10.1109/JSTARS.2025.3593779
+  https://ieeexplore.ieee.org/document/11105453
+
+  Model weights can be requested via email: wout.decrop@vliz.be.
+
+doi: 10.1109/JSTARS.2025.3593779
 dates:
   created: "2025-05-14"
-  updated: "2025-05-14"
+  updated: "2025-08-06"
 links:
   ai4_template: ai4-template/2.2.0
   source_code: https://github.com/ai4os-hub/audio-vessel-classification
   docker_image: ai4oshub/audio-vessel-classifier
+  citation: https://ieeexplore.ieee.org/document/11105453
+  dataset: https://www.vliz.be/nl/imis?dasid=8773&doiid=1154
+
 tags:
   - deep learning
+  - underwater acoustics
+  - vessel monitoring
   - vo.imagine-ai.eu
 tasks:
-  - Computer Vision
-  - Classification
-categories:  # required property, uncomment together with relevant items
- - AI4 inference
-libraries:   # required property, uncomment together with relevant items
+  - Audio Classification
+  - Environmental Monitoring
+categories:
+  - AI4 inference
+libraries:
   - PyTorch
-data-type:   # optional, uncomment together with relevant items
+data-type:
   - Audio
-  
