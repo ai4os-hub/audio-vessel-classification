@@ -35,7 +35,7 @@ class TestModelMethods(unittest.TestCase):
         )
         self.assertEqual(
             self.meta["author"],
-           "wout decrop",
+            "wout decrop",
         )
         self.assertEqual(
             self.meta["license"].lower(),

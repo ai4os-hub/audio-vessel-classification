@@ -2,6 +2,7 @@
 
 [![Build Status](https://jenkins.services.ai4os.eu/buildStatus/icon?job=AI4OS-hub/audio-vessel-classification/main)](https://jenkins.services.ai4os.eu/job/AI4OS-hub/job/audio-vessel-classification/job/main/)
 
+<<<<<<< HEAD
 ## Project Overview
 The Audio Vessel Classifier is a deep learning project designed to monitor vessel activity in marine environments using passive acoustic recordings. It processes 10-second audio clips recorded underwater and predicts the distance to the nearest vessel. This information supports marine conservation, shipping traffic analysis, and assessing human impact on sensitive ecosystems.
 
@@ -63,6 +64,10 @@ The model outputs a **distance category** corresponding to the proximity of the 
 
 
 ## Launch
+=======
+The weights of the models (fine-tuning & feature-extraction) can be requested by emailing: wout.decrop@vliz.be
+The weights are currently not open-source untill the paper (in submission) is accepted
+>>>>>>> 93902d76bc27daea13899620679789dc69f66baf
 
 To launch it, first install the package then run [deepaas](https://github.com/ai4os/DEEPaaS):
 ```bash
@@ -72,6 +77,7 @@ pip install -e .
 deepaas-run --listen-ip 0.0.0.0
 ```
 
+<<<<<<< HEAD
 
 ![api screenshot](etc/api_screenshot.png)  <!-- Replace with your actual image path -->
 
@@ -89,6 +95,10 @@ The model outputs:
 
 - **Distance category**: 0-1 km, 1-2 km, 2-3 km, 3-4 km, 4-5 km, 5-6 km, 6-7 km, 7-8 km, 8-9 km, 9-10 km, 10+ km
 
+=======
+You will have the option to upload either a (10 sec) .wav file or  embedding file (.pt)
+You can then choose if you want to use the feature-extraction or fine-tuning model. The fine-tuning model has a slightly higher performance and is most recommended.
+>>>>>>> 93902d76bc27daea13899620679789dc69f66baf
 
 ## Project structure
 ```

@@ -102,6 +102,7 @@ pmip
 .sw[nop]
 *.tmp
 *.vim
+*.html
 tags
 cscope.out
 # gnu global
@@ -139,7 +140,13 @@ GTAGS
 *.zip
 *.pkl
 *.npz
+*.pt
 
-# Things specific to this project #
+# Directoris #
 ###################################
+data/raw/* 
+data/raw/* 
+wandb/*
 models/*
+bandit/*
+

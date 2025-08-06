@@ -3,8 +3,11 @@
     "summary": "Classifies the distance to the nearest vessel from a 10-second underwater audio recording using a deep learning model.",
     "description": [
     "audio_vessel_classifier is an application using the DEEPaaS API. Upload your 10-second .wav file and receive a prediction indicating the distance range to the nearest vessel.\n",
-    "The classifier is based on a convolutional neural network trained on underwater sound recordings. It categorizes the distance of the closest vessel into discrete classes (e.g., 0–1 km, 1–2 km, ..., 9–10 km, >10 km) based on acoustic features. This tool is designed to support marine monitoring efforts by providing automated vessel presence estimation from passive acoustic data."
+    "The classifier is based on a convolutional neural network trained on underwater sound recordings. It categorizes the distance of the closest vessel into discrete classes (e.g., 0–1 km, 1–2 km, ..., 9–10 km, >10 km) based on acoustic features. This tool is designed to support marine monitoring efforts by providing automated vessel presence estimation from passive acoustic data.",
+    "The weights of the models (fine-tuning & feature-extraction) can be requested by emailing: wout.decrop@vliz.be",
+    "The weights are currently not open-source untill the paper (in submission) is accepted!" 
     ],
+	
     "keywords": [
         "docker",
         "api-v2",
@@ -22,7 +25,7 @@
     "dataset_url": "https://www.vliz.be/nl/imis?dasid=8773&doiid=1154",
     "sources": {
 		"dockerfile_repo": "https://github.com/ai4os-hub/audio-vessel-classification",
-		"docker_registry_repo": "ai4oshub/audio_vessel_classifier",
+		"docker_registry_repo": "ai4oshub/audio-vessel-classifier",
 		"code": "https://github.com/ai4os-hub/audio-vessel-classification"
     },
     "continuous_integration": {

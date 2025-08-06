@@ -1,2 +1,0 @@
-[deepaas.v2.model]
-audio_vessel_classifier = audio_vessel_classifier.api

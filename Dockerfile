@@ -89,4 +89,4 @@ RUN python3 -m pip install --upgrade pip==23.3.1 && \
 EXPOSE 5000 6006 8888
 
 # Launch deepaas
-CMD [ "deep-start", "--deepaas" ]
+CMD ["deepaas-run", "--listen-ip", "0.0.0.0", "--listen-port", "5000"]

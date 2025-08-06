@@ -8,9 +8,4 @@ import groovy.transform.Field
 @Field
 def dockerfile = 'Dockerfile'
 
-@Field
-def base_gpu_tag = '2.7.0-cuda11.8-cudnn9-runtime'
-
-
-
 return this;

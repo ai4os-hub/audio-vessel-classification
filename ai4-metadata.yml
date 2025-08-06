@@ -1,8 +1,10 @@
 metadata_version: 2.0.0
 title: audio_vessel_classifier
-summary: ""
+summary: "Classifies the distance to the nearest vessel from a 10-second underwater audio recording using a deep learning model"
 description: |-
   audio_vessel_classifier is an application using the DEEPaaS API.
+  The weights of the models (fine-tuning & feature-extraction) can be requested by emailing: wout.decrop@vliz.be
+  The weights are currently not open-source untill the paper (in submission) is accepted!
   
 # doi: http://add-some-DOI-url.com
 dates:
@@ -10,60 +12,18 @@ dates:
   updated: "2025-05-14"
 links:
   ai4_template: ai4-template/2.2.0
-  source_code: https://github.com/ai4os-hub/audio_vessel_classifier
-  docker_image: ai4oshub/audio_vessel_classifier
-  # documentation: http://add-some-documentation.com
-  # dataset: http://add-some-url-pointing-to-your-dataset.com
-  # weights: http://add-some-weights-url.com
-  # citation: http://add-some-DOI-url.com
-  # base_model: http://add-some-link-to-another-model.com
+  source_code: https://github.com/ai4os-hub/audio-vessel-classification
+  docker_image: ai4oshub/audio-vessel-classifier
 tags:
   - deep learning
   - vo.imagine-ai.eu
 tasks:
   - Computer Vision
   - Classification
-# tags:        # required property, add user-defined tags that you consider relevant
-#   - deep learning
-# tasks:       # required property, uncomment together with relevant items
-#  - Classification
-  # - Computer Vision
-  # - Natural Language Processing
-  # - Time Series
-  # - Recommender Systems
-  # - Anomaly Detection
-  # - Regression
-  # - Classification
-  # - Clustering
-  # - Dimensionality Reduction
-  # - Generative Models
-  # - Graph Neural Networks
-  # - Optimization
-  # - Reinforcement Learning
-  # - Transfer Learning
-  # - Uncertainty Estimation
-  # - Other
 categories:  # required property, uncomment together with relevant items
  - AI4 inference
-  # - AI4 trainable
-  # - AI4 pre trained
-  # - AI4 inference
-  # - AI4 tools
 libraries:   # required property, uncomment together with relevant items
   - PyTorch
-  # - Keras
-  # - Scikit-learn
-  # - XGBoost
-  # - LightGBM
-  # - CatBoost
-  # - Other
 data-type:   # optional, uncomment together with relevant items
   - Audio
-  # - Image
-  # - Text
-  # - Time Series
-  # - Tabular
-  # - Graph
-  # - Video
-  # - Other
   

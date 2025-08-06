@@ -22,9 +22,10 @@ pipeline {
                 if (fileExists("flake8.log")) {
                     // file locations are defined in tox.ini
                     // publish results of the style analysis
-                    recordIssues(tools: [flake8(pattern: 'flake8.log',
-                                         name: 'PEP8 report',
-                                         id: "flake8_pylint")])
+                    recordIssues(
+                     tools: [flake8(pattern: 'flake8.log', name: 'PEP8 report', id: 'flake8_pylint')],
+                     allowMissing: true
+)
                 }
                 if (fileExists("htmlcov/index.html")) {
                     // publish results of the coverage test

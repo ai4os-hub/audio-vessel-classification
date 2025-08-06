@@ -25,26 +25,24 @@ an exemplar module [2].
 """
 
 
-import logging
 import builtins
-
 import json
+import logging
 
 import torch
 import torch.nn.functional as F
 import torchaudio
-
-from transformers import AutoProcessor, ClapModel, ClapAudioModelWithProjection, ClapProcessor
-
 from aiohttp.web import HTTPException
-from webargs import fields, validate
+from transformers import ClapAudioModelWithProjection, ClapProcessor
+from webargs import fields
 
 from audio_vessel_classifier import config
-from audio_vessel_classifier.misc import _catch_error
 from audio_vessel_classifier.models import model_loader
 
 logger = logging.getLogger(__name__)
 logger.setLevel(config.LOG_LEVEL)
+
+
 def get_metadata():
     """Returns a dictionary containing metadata information about the module.
        DO NOT REMOVE - All modules should have a get_metadata() function
@@ -71,9 +69,7 @@ def predict(**args):
     try:
         if not any([args.get("embedding_file"), args.get("audio_file")]):
 
-            raise Exception(
-                "You must provide  '.pt' or '.wav' in the payload"
-            )
+            raise Exception("You must provide  '.pt' or '.wav' in the payload!")
 
         return predict_data(args)
 
@@ -81,8 +77,9 @@ def predict(**args):
         raise HTTPException(reason=err) from err
 
 
-
-def load_and_prepare_waveform(wav_path, duration=10, desired_fs=48000, channel=0):
+def load_and_prepare_waveform(
+    wav_path, duration=10, desired_fs=48000, channel=0
+):
     waveform_info = torchaudio.info(wav_path)
     waveform, fs = torchaudio.load(wav_path)
 
@@ -98,11 +95,27 @@ def load_and_prepare_waveform(wav_path, duration=10, desired_fs=48000, channel=0
 
     return waveform.cpu().numpy(), desired_fs
 
-def get_clap_embedding(x_np, desired_fs, freeze, device):
-    processor = ClapProcessor.from_pretrained("davidrrobinson/BioLingual")
-    clap = ClapAudioModelWithProjection.from_pretrained("davidrrobinson/BioLingual").to(device)
 
-    inputs = processor(audios=[x_np], return_tensors="pt", sampling_rate=desired_fs, padding=True)
+def get_clap_embedding(x_np, desired_fs, freeze, device):
+    # Get this hash from the model card under 'Files and versions' (use commit SHA)
+    revision = "808bb50859ce7d0c0fcc2b233676c7ba9319107e"  
+
+    processor = ClapProcessor.from_pretrained(
+        "davidrrobinson/BioLingual",
+        revision="808bb50859ce7d0c0fcc2b233676c7ba9319107e"
+    )
+    clap = ClapAudioModelWithProjection.from_pretrained(
+        "davidrrobinson/BioLingual",
+        revision="808bb50859ce7d0c0fcc2b233676c7ba9319107e"
+    ).to(device)
+
+
+    inputs = processor(
+        audios=[x_np],
+        return_tensors="pt",
+        sampling_rate=desired_fs,
+        padding=True,
+    )
     inputs = {k: v.to(device) for k, v in inputs.items()}
 
     with torch.no_grad():
@@ -121,6 +134,7 @@ def run_prediction(embedding, model, freeze, device):
         probabilities = F.softmax(output, dim=1).squeeze().cpu().tolist()
     return predicted_class, probabilities
 
+
 def predict_data(args):
     device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
     freeze = args.get("model_choice") != "fine_tuning"
@@ -130,8 +144,9 @@ def predict_data(args):
         embedded = True
 
     if args.get("audio_file"):
-        wav_path = wav_path = args["audio_file"].filename  # Extract the temp file path
- # path from args, not hardcoded
+        # Extract the temp file path
+        wav_path = wav_path = args["audio_file"].filename
+        # path from args, not hardcoded
         x_np, desired_fs = load_and_prepare_waveform(wav_path)
         embedding = get_clap_embedding(x_np, desired_fs, freeze, device)
         embedded = True
@@ -140,11 +155,13 @@ def predict_data(args):
         logger.debug("Predict with args: %s", args)
         try:
             update_with_query_conf(args)
-            conf = config.conf_dict
+            config.conf_dict
 
             if "embedding_file" in args and args["embedding_file"] is not None:
                 uploaded_file = args["embedding_file"]
-                embedding = torch.load(uploaded_file.filename, map_location="cpu")
+                embedding = torch.load(
+                    uploaded_file.filename, map_location="cpu"
+                )
 
             model = model_loader(device, freeze)
             return run_prediction(embedding, model, freeze, device)
@@ -156,11 +173,10 @@ def predict_data(args):
         return {"error": "No audio or embedding file provided"}
 
 
-
-
 def update_with_query_conf(user_args):
     """
-    Update the default YAML configuration with the user's input args from the API query
+    Update the default YAML configuration
+    with the user's input args from the API query
     """
     # Update the default conf with the user input
     CONF = config.CONF
@@ -196,29 +212,23 @@ def get_predict_args():
             enum=["fine_tuning", "feature_extraction"],
             description="test multi-choice with strings",
         ),
-       
+
         "embedding_file": fields.Field(
             required=False,
             format="binary",
             type="file",
             location="form",
-            description="test image upload",  # "image" word in description is needed to be parsed by Gradio UI
+            description="test image upload",
         ),
         "audio_file": fields.Field(
             required=False,
             type="file",
             location="form",
-            description="test audio upload",  # "audio" word in description is needed to be parsed by Gradio UI
+            description="test audio upload",
         ),
-        # Add format type of the response of predict()
-        # For demo purposes, we allow the user to receive back either JSON, image or zip.
-        # More options for MIME types: https://mimeapplication.net/
     }
     # fmt: on
     return arg_dict
-
-
-
 
 
 def populate_parser(parser, default_conf):
@@ -237,16 +247,11 @@ def populate_parser(parser, default_conf):
                 if ("type" in gg_keys)
                 else None
             )
-            choices = (
-                g_val["choices"] if ("choices" in gg_keys) else None
-            )
+            choices = g_val["choices"] if ("choices" in gg_keys) else None
 
             # Additional info in help string
-            help += (
-                "\n"
-                + "<font color='#C5576B'> Group name: **{}**".format(
-                    str(group)
-                )
+            help += "\n" + "<font color='#C5576B'> Group name: **{}**".format(
+                str(group)
             )
             if choices:
                 help += "\n" + "Choices: {}".format(str(choices))
@@ -263,9 +268,7 @@ def populate_parser(parser, default_conf):
             if choices:
                 json_choices = [json.dumps(i) for i in choices]
                 opt_args["metadata"]["enum"] = json_choices
-                opt_args["validate"] = fields.validate.OneOf(
-                    json_choices
-                )
+                opt_args["validate"] = fields.validate.OneOf(json_choices)
             parser[g_key] = fields.Str(**opt_args)
 
-    return parser    
+    return parser
