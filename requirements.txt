@@ -1,7 +1,7 @@
 # Core dependencies
 torch==2.2.0
 torchaudio==2.2.0
-transformers==4.37.2
+transformers==4.53.0
 pandas==2.2.0
 numpy==1.26.3
 matplotlib==3.8.2
