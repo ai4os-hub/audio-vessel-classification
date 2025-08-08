@@ -19,7 +19,6 @@ FROM pytorch/pytorch:${tag}
 
 LABEL maintainer='wout decrop'
 LABEL version='0.0.1'
-# 
 
 # What user branch to clone [!]
 ARG branch=testing_docker

@@ -204,7 +204,6 @@ def get_predict_args():
     * composed: list of strs, list of int
     """
     # WARNING: missing!=None has to go with required=False
-    # fmt: off
     arg_dict = {
         "model_choice": fields.Str(
             required=False,
