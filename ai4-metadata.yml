@@ -11,9 +11,11 @@ description: |-
   After launching the service, users can choose which model to use:
   - `fine_tuning`: more accurate, re-trained end-to-end
   - `feature_extraction`: more efficient, using frozen backbone and custom classification head
-
-
-  ![overview](https://raw.githubusercontent.com/ai4os-hub/audio-vessel-classification/blob/main/etc/overview_mixed.jpg)
+  
+  <img class='fit' src='https://raw.githubusercontent.com/ai4os-hub/audio-vessel-classification/main/etc/overview_mixed.jpg'/>
+  
+  ![overview](https://raw.githubusercontent.com/ai4os-hub/audio-vessel-classification/main/etc/overview_mixed.jpg)
+  
   More information about the classifier can be found here:
   DOI: 10.1109/JSTARS.2025.3593779
   https://ieeexplore.ieee.org/document/11105453
