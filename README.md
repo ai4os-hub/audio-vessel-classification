@@ -91,7 +91,6 @@ The model outputs:
 
 - **Distance category**: 0-1 km, 1-2 km, 2-3 km, 3-4 km, 4-5 km, 5-6 km, 6-7 km, 7-8 km, 8-9 km, 9-10 km, 10+ km
 
-
 ## Project structure
 ```
 │

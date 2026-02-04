@@ -13,9 +13,7 @@ description: |-
   - `feature_extraction`: more efficient, using frozen backbone and custom classification head
   
   <img class='fit' src='https://raw.githubusercontent.com/ai4os-hub/audio-vessel-classification/main/etc/overview_mixed.jpg'/>
-  
-  ![overview](https://raw.githubusercontent.com/ai4os-hub/audio-vessel-classification/main/etc/overview_mixed.jpg)
-  
+    
   More information about the classifier can be found here:
   DOI: 10.1109/JSTARS.2025.3593779
   https://ieeexplore.ieee.org/document/11105453
