@@ -24,7 +24,6 @@ an exemplar module [2].
 [2]: https://github.com/ai4os-hub/ai4os-demo-app
 """
 
-
 import builtins
 import json
 import logging

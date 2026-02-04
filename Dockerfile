@@ -10,7 +10,6 @@
 # Be Aware! For the Jenkins CI/CD pipeline, 
 # input args are defined inside the JenkinsConstants.groovy, not here!
 
-ARG tag=2.1.0-cuda11.8-cudnn8-runtime
 ARG tag=2.7.0-cuda11.8-cudnn9-runtime
 # Base image, e.g. tensorflow/tensorflow:2.9.1
 FROM pytorch/pytorch:${tag}

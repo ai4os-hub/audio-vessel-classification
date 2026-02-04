@@ -1,6 +1,6 @@
 metadata_version: 2.0.0
 title: audio_vessel_classifier
-summary: "Classifies the distance to the nearest vessel from a 10-second underwater audio recording using a deep learning model."
+summary: "Classifies the distance to the nearest vessel from a 10-second underwater audio recording using a deep learning model!"
 description: |-
   audio_vessel_classifier is an AI application that uses underwater acoustic data to estimate the distance to the nearest vessel.
   It leverages the DEEPaaS API for model serving and supports two pre-trained deep learning models: a feature extraction model and a fine-tuning model.
