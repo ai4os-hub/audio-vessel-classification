@@ -5,6 +5,8 @@
 ## Project Overview
 The Audio Vessel Classifier is a deep learning project designed to monitor vessel activity in marine environments using passive acoustic recordings. It processes 10-second audio clips recorded underwater and predicts the distance to the nearest vessel. This information supports marine conservation, shipping traffic analysis, and assessing human impact on sensitive ecosystems. More information can be found in the associated publication:
 
+To deploy on the imagine servers, please visit: https://dashboard.cloud.imagine-ai.eu/catalog/modules/audio-vessel-classification
+
 **DOI:** [10.1109/JSTARS.2025.3593779](https://doi.org/10.1109/JSTARS.2025.3593779)  
 
 ### Data Preparation
